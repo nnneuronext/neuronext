@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neuronext-backend
+  labels:
+    app: neuronext-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: neuronext-backend
+  template:
+    metadata:
+      labels:
+        app: neuronext-backend
+    spec:
+      containers:
+      - name: backend
+        image: neuronext-backend:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: GOOGLE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: neuronext-secrets
+              key: google-api-key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neuronext-backend-service
+spec:
+  selector:
+    app: neuronext-backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: ClusterIP

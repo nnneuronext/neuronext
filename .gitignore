@@ -1,0 +1,82 @@
+
+# Environment files
+.env*
+!.env.example
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+env/
+ENV/
+
+# Production
+/build
+.out
+.next/
+.nuxt/
+
+# Logs
+*.log
+
+# Docker
+docker-compose.override.yml
+
+# Coverage
+coverage/
+.nyc_output
+
+# Temp files
+*.tmp
+*.temp
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE
+/.idea/
+/.vscode/
+
+# Database
+*.sqlite3
+*.db
+
+# Docker
+docker-compose.override.yml
