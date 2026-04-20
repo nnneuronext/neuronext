@@ -1,6 +1,6 @@
 {
   "build": {
-    "dockerfile": "Dockerfile"
+    "runtime": "python3.11"
   },
   "deploy": {
     "restartPolicyType": "ON_FAILURE",
