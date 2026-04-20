@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Starting Neuronext Backend..."
+uvicorn src.app.main:app --host 0.0.0.0 --port $PORT
