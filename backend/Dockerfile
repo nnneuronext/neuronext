@@ -8,10 +8,11 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar requirements e instalar dependências
+# Railway já está no diretório /backend, então copiamos de .
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar todo o código
+# Copiar todo o código do backend
 COPY . .
 
 # Expor porta
