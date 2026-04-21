@@ -10,8 +10,11 @@ export default function AIContentGenerator() {
     
     setLoading(true);
     try {
-      // Mock response for now
-      setResponse({ message: "Conteúdo gerado com sucesso!" });
+      // Mock response for testing
+      setResponse({ 
+        message: "Conteúdo gerado com sucesso!",
+        content: "Este é um exemplo de conteúdo gerado pela IA."
+      });
     } catch (error) {
       console.error(error);
     } finally {
@@ -32,13 +35,14 @@ export default function AIContentGenerator() {
       <button 
         onClick={generateContent} 
         disabled={loading}
-        className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50"
+        className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50"
       >
         {loading ? "Gerando..." : "Gerar Conteúdo"}
       </button>
       {response && (
         <div className="mt-4 p-4 bg-green-100 rounded">
-          {JSON.stringify(response)}
+          <h3 className="font-bold">Resultado:</h3>
+          <p>{response.content}</p>
         </div>
       )}
     </div>
