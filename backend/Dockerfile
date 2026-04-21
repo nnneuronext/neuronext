@@ -7,15 +7,15 @@ RUN apt-get update && apt-get install -y \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiar requirements e instalar dependências Python
+# Copiar requirements e instalar dependências
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar código da aplicação
+# Copiar todo o código
 COPY . .
 
 # Expor porta
 EXPOSE 8000
 
-# Comando para rodar a aplicação
+# Comando de inicialização
 CMD ["uvicorn", "src.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
