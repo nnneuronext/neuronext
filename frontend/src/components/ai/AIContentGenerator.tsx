@@ -2,9 +2,14 @@
 
 import { useState } from "react";
 
+interface AIResponse {
+  message: string;
+  content: string;
+}
+
 export default function AIContentGenerator() {
   const [prompt, setPrompt] = useState("");
-  const [response, setResponse] = useState(null);
+  const [response, setResponse] = useState<AIResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
   const generateContent = async () => {
@@ -12,7 +17,7 @@ export default function AIContentGenerator() {
     
     setLoading(true);
     try {
-      setResponse({ 
+      setResponse({
         message: "Conteúdo gerado com sucesso!",
         content: "Este é um exemplo de conteúdo gerado pela IA."
       });
@@ -31,7 +36,7 @@ export default function AIContentGenerator() {
         onChange={(e) => setPrompt(e.target.value)}
         placeholder="Digite seu prompt aqui..."
         className="w-full p-3 border rounded mb-4"
-        rows="4"
+        rows={4}
       />
       <button 
         onClick={generateContent} 
@@ -42,7 +47,7 @@ export default function AIContentGenerator() {
       </button>
       {response && (
         <div className="mt-4 p-4 bg-green-100 rounded">
-          <h3 className="font-bold">Resultado:</h3>
+          <h3 className="font-bold">{response.message}</h3>
           <p>{response.content}</p>
         </div>
       )}
