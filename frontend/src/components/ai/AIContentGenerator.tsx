@@ -10,7 +10,6 @@ export default function AIContentGenerator() {
     
     setLoading(true);
     try {
-      // Mock response for testing
       setResponse({ 
         message: "Conteúdo gerado com sucesso!",
         content: "Este é um exemplo de conteúdo gerado pela IA."

@@ -1,4 +1,4 @@
-import AIContentGenerator from "@/components/ai/AIContentGenerator";
+import AIContentGenerator from "../components/ai/AIContentGenerator";
 
 export default function Home() {
   return (
